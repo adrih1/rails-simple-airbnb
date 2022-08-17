@@ -1,0 +1,58 @@
+<div class="navbar">
+  <div class="brand">
+    <a><%= link_to "Simple Airbnb", flats_path%></a>
+  </div>
+  <div class="navbar-right">
+    <form class="form">
+      <input class="form-control me-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="Submit">Search</button>
+    </form>
+    <a><%= link_to "Add Flat", new_flat_path%></a>
+  </div>
+
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our flats</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <p>All 2 flats</p>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div>
+     <div id="flats">
+        <% @flats.each do |flat| %>
+          <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-content">
+              <p class="flat-name"><%= flat.name %></p>
+              <p class="flat-address"><%= flat.address %></p>
+              <div class="icons">
+                <p><i class="fa-solid fa-user-group"></i><%= flat.number_of_guests %></p>
+                <p><i class="fa-solid fa-euro-sign"></i><%= flat.price_per_night %></p>
+              </div>
+
+            </div>
+            <div class="card-footer">
+              <p><%= link_to "More info", flat %></p>
+              <p id="edit"><%= link_to "Edit", edit_flat_path(flat)%></p>
+              <p id="remove"><%=link_to "Remove", flat_path(flat) , data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-danger", style: "text-decoration: none;" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="navbar">
+  <div class="brand">
+    <a><%= link_to "Simple Airbnb", flats_path%></a>
+  </div>
+  <div class="navbar-right">
+    <form class="form">
+      <input class="form-control me-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="Submit">Search</button>
+    </form>
+    <a><%= link_to "Add Flat", new_flat_path%></a>
+  </div>
+
+</div>
+
+
+<div class="container">
+  <h1>New flat</h1>
+
+  <%= render "form", flat: @flat %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to flats", flats_path %>
+  </div>
+
+</div>
